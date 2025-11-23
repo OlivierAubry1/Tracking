@@ -3,9 +3,11 @@ import mediapipe as mp
 
 mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
-hands = mp_hands.Hands(min_detection_confidence=0.7)
+hands = mp_hands.Hands(model_complexity=0, min_detection_confidence=0.7)
 
 webcam = cv2.VideoCapture(0)
+webcam.set(3, 640)
+webcam.set(4, 480)
 while True:
     success, frame = webcam.read()
     if success == False:
